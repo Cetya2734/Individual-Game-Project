@@ -141,6 +141,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  wallRunSpeed: 7
+  wallRunDuration: 1
+  wallRunGravityScale: 1
 --- !u!212 &3665348041636067164
 SpriteRenderer:
   m_ObjectHideFlags: 0
