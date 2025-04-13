@@ -49,6 +49,15 @@ public class Entity : MonoBehaviour
         stateMachine = new FiniteStateMachine();
     }
 
+    public virtual Vector2 GetPlayerPosition()
+    {
+        if (playerCheck != null)
+        {
+            return playerCheck.position;
+        }
+        return Vector2.zero; // Default value if playerCheck is not set
+    }
+
     public virtual void Update()
     {
         stateMachine.currentState.LogicUpdate();
@@ -74,9 +83,11 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
     {
-        angle.Normalize();
+        angle.Normalize(); // Ensure the direction vector is normalized
         velocityWorkspace.Set(angle.x * velocity * direction, angle.y * velocity);
         rb.velocity = velocityWorkspace;
+
+        Debug.Log($"SetVelocity: Velocity set to {rb.velocity}");
     }
 
     public virtual bool CheckWall()
