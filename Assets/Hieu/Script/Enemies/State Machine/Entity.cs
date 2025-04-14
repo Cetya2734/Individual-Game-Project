@@ -83,7 +83,7 @@ public class Entity : MonoBehaviour
 
     public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
     {
-        angle.Normalize(); // Ensure the direction vector is normalized
+        angle.Normalize();
         velocityWorkspace.Set(angle.x * velocity * direction, angle.y * velocity);
         rb.velocity = velocityWorkspace;
 

@@ -20,5 +20,9 @@ public class E3_LookForPlayerState : LookForPlayerState
         {
             stateMachine.ChangeState(enemy.playerDetectedState);
         }
+        else if (isAllTurnsTimeDone)
+        {
+            stateMachine.ChangeState(enemy.moveState);
+        }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class E3_PlayerDetectedState : PlayerDetectedState
 {
     private Enemy3 enemy;
+    protected bool isPlayerInCloseRangeAction;
 
     public E3_PlayerDetectedState(Entity entity, FiniteStateMachine stateMachine, string animBoolName, D_PlayerDetected stateData, Enemy3 enemy)
         : base(entity, stateMachine, animBoolName, stateData)
@@ -22,11 +23,16 @@ public class E3_PlayerDetectedState : PlayerDetectedState
         }
         else if (performLongRangeAction)
         {
-            stateMachine.ChangeState(enemy.chargeState); // Jump toward the player
+            stateMachine.ChangeState(enemy.chargeState);
         }
         else if (!isPlayerInMaxAgroRange)
         {
             stateMachine.ChangeState(enemy.lookForPlayerState);
+        }
+        else if (!isDetectingLedge)
+        {
+            entity.Flip();
+            stateMachine.ChangeState(enemy.moveState);
         }
     }
 }

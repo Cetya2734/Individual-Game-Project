@@ -12,25 +12,20 @@ public class E3_MeleeAttackState : MeleeAtackState
         this.enemy = enemy;
     }
 
-    public override void Enter()
-    {
-        base.Enter();
-        // Add enemy-specific logic if needed
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-        // Add exit logic if needed
-    }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-    }
 
-    public override void PhysicsUpdate()
-    {
-        base.PhysicsUpdate();
+        if (isAnimationFinished)
+        {
+            if (isPlayerInMinAgroRange)
+            {
+                stateMachine.ChangeState(enemy.playerDetectedState);
+            }
+            else
+            {
+                stateMachine.ChangeState(enemy.lookForPlayerState);
+            }
+        }
     }
 }

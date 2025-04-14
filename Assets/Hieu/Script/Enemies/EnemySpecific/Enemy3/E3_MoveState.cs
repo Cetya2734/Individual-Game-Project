@@ -42,10 +42,6 @@ public class E3_MoveState : MoveState
             enemy.idleState.SetFlipAfterIdle(true);
             stateMachine.ChangeState(enemy.idleState);
         }
-        else
-        {
-            enemy.SetVelocity(stateData.movementSpeed); // Continue moving
-        }
     }
 
     public override void PhysicsUpdate()
