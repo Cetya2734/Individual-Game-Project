@@ -43,4 +43,9 @@ public class GameManager : MonoBehaviour
             respawn = false;
         }
     }
+
+    public void SetRespawnPoint(Transform newRespawnPoint)
+    {
+        respawnPoint = newRespawnPoint;
+    }
 }
