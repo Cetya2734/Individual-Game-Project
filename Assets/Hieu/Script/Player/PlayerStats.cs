@@ -65,4 +65,11 @@ public class PlayerStats : MonoBehaviour
         coinCount = Mathf.Max(0, coinCount - amount);
         OnCoinsChanged?.Invoke(coinCount);
     }
+
+    public void Heal(float amount)
+    {
+        currentHealth += amount;
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        OnHealthChanged?.Invoke(currentHealth);
+    }
 }
