@@ -31,4 +31,13 @@ public class ProximityArrowTrap : MonoBehaviour
             projectileScript.FireProjectile(fireSpeed, fireDistance, fireDamage);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        if (firePoint != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(firePoint.position, firePoint.position + firePoint.right * fireDistance);
+        }
+    }
 }

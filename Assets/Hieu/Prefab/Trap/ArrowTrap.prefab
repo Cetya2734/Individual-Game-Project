@@ -126,4 +126,4 @@ MonoBehaviour:
   firePoint: {fileID: 6572407194208077654}
   fireSpeed: 10
   fireDistance: 5
-  fireDamage: 1
+  fireDamage: 15
