@@ -5,16 +5,14 @@ using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Transform respawnPoint;
-    [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private float respawnTime;
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private GameObject player;
+    [SerializeField] private float respawnTime;
 
     private float respawnTimeStart;
-
     private bool respawn;
+
+    public static System.Action<PlayerStats> OnPlayerRespawned;
 
     private CinemachineVirtualCamera CVC;
 
@@ -36,11 +34,14 @@ public class GameManager : MonoBehaviour
 
     private void CheckRespawn()
     {
-        if(Time.time >= respawnTimeStart + respawnTime && respawn)
+        if (Time.time >= respawnTimeStart + respawnTime && respawn)
         {
-            var playerTemp = Instantiate(player, respawnPoint);
+            var playerTemp = Instantiate(player, respawnPoint.position, Quaternion.identity);
             CVC.m_Follow = playerTemp.transform;
             respawn = false;
+
+            var playerStats = playerTemp.GetComponent<PlayerStats>();
+            OnPlayerRespawned?.Invoke(playerStats);
         }
     }
 
