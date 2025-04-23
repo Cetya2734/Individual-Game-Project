@@ -46,6 +46,9 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {
+        // Save coins before dying
+        GM.SaveCoins(coinCount);
+
         Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
         GM.Respawn();
@@ -71,5 +74,12 @@ public class PlayerStats : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Min(currentHealth, maxHealth);
         OnHealthChanged?.Invoke(currentHealth);
+    }
+
+    // NEW: Called from GameManager when a player is respawned
+    public void SetCoins(int amount)
+    {
+        coinCount = amount;
+        OnCoinsChanged?.Invoke(coinCount);
     }
 }

@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Enemy
   - MovingPlatform
+  - GravityTrigger
+  - GravityZone
   layers:
   - Default
   - TransparentFX

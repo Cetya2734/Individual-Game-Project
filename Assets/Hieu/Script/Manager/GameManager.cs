@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private float respawnTimeStart;
     private bool respawn;
 
+    private int savedCoins = 0;
+
     public static System.Action<PlayerStats> OnPlayerRespawned;
 
     private CinemachineVirtualCamera CVC;
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
             respawn = false;
 
             var playerStats = playerTemp.GetComponent<PlayerStats>();
+            playerStats.SetCoins(savedCoins); // Restore coins
             OnPlayerRespawned?.Invoke(playerStats);
         }
     }
@@ -48,5 +51,17 @@ public class GameManager : MonoBehaviour
     public void SetRespawnPoint(Transform newRespawnPoint)
     {
         respawnPoint = newRespawnPoint;
+    }
+
+    // Save coin count before the player dies
+    public void SaveCoins(int amount)
+    {
+        savedCoins = amount;
+    }
+
+    // Optionally expose this if other systems need to read it
+    public int LoadCoins()
+    {
+        return savedCoins;
     }
 }

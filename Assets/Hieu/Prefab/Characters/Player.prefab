@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 121423591471270561}
   - component: {fileID: 8132109909711064486}
   - component: {fileID: 8347997123381514111}
+  - component: {fileID: 5262562395945383660}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockbackDuration: 0.1
+  isFacingRight: 1
   amountOfJumps: 2
   movementSpeed: 10
   jumpForce: 19
@@ -141,9 +143,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  wallRunSpeed: 7
-  wallRunDuration: 1
-  wallRunGravityScale: 1
 --- !u!212 &3665348041636067164
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -183,7 +182,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -807309321
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c39bcb37c7743b4eb731f5b1e22251a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -315,6 +314,22 @@ MonoBehaviour:
   maxHealth: 50
   deathChunkParticle: {fileID: 7833959393804445021, guid: d31eefe46d90e6641831133ea4b4cd1a, type: 3}
   deathBloodParticle: {fileID: 8228286358041129484, guid: aed01af6d6145604695173eca524e87a, type: 3}
+--- !u!114 &5262562395945383660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6631742257813699226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cbb55e1271082c499dca49f0e26cefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipCooldown: 0.5
+  gravitySwitchKey: 114
+  canSwitchGravity: 0
+  wallToActivate: {fileID: 0}
 --- !u!1 &8852431755278563387
 GameObject:
   m_ObjectHideFlags: 0

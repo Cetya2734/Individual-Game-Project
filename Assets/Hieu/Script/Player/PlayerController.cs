@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private int facingDirection = 1;
     private int lastWallJumpDirection;
 
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
     private bool isRunning;
     private bool isGrounded;
     private bool isTouchingWall;
@@ -147,7 +147,8 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
-        isTouchingWall = Physics2D.Raycast(wallCheck.position, transform.right, wallCheckDistance, whatIsGround);
+        Vector2 wallCheckDirection = isFacingRight ? Vector2.right : Vector2.left;
+        isTouchingWall = Physics2D.Raycast(wallCheck.position, wallCheckDirection, wallCheckDistance, whatIsGround);
     }
 
     private void CheckIfCanJump()
@@ -393,12 +394,15 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        if(!isWallSliding && canFlip && !knockback)
+        if (!isWallSliding && canFlip && !knockback)
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
-            transform.Rotate(0f, 180f, 0f);
-        }       
+
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Abs(scale.x) * (isFacingRight ? 1 : -1);
+            transform.localScale = scale;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
