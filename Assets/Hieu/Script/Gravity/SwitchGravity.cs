@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SwitchGravity : MonoBehaviour
 {
@@ -14,12 +15,20 @@ public class SwitchGravity : MonoBehaviour
 
     [Header("Gravity Switch Control")]
     [SerializeField] private bool canSwitchGravity = false;
-    [SerializeField] private GameObject wallToActivate; // Wall to enable when inside the trigger
+    [SerializeField] private GameObject wallToActivate;
+
+    [Header("UI Prompts")]
+    [SerializeField] private GameObject gravityPromptUI_Enter;
+    [SerializeField] private GameObject gravityPromptUI_Exit;
 
     void Start()
     {
         player = GetComponent<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
+
+        // Ensure prompts start off
+        if (gravityPromptUI_Enter) gravityPromptUI_Enter.SetActive(false);
+        if (gravityPromptUI_Exit) gravityPromptUI_Exit.SetActive(false);
     }
 
     private void Update()
@@ -35,11 +44,7 @@ public class SwitchGravity : MonoBehaviour
 
     void Rotation()
     {
-        if (!top)
-            transform.eulerAngles = new Vector3(0, 0, 180f);
-        else
-            transform.eulerAngles = Vector3.zero;
-
+        transform.eulerAngles = top ? Vector3.zero : new Vector3(0, 0, 180f);
         top = !top;
     }
 
@@ -50,17 +55,6 @@ public class SwitchGravity : MonoBehaviour
         transform.localScale = currentScale;
     }
 
-    public void ActivateGravityZone(Collider2D gravityZoneCollider)
-    {
-        if (gravityZoneCollider.CompareTag("GravityZone"))
-        {
-            canSwitchGravity = true;
-
-            if (wallToActivate != null)
-                wallToActivate.SetActive(true);
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("GravityZone"))
@@ -69,6 +63,12 @@ public class SwitchGravity : MonoBehaviour
 
             if (wallToActivate != null)
                 wallToActivate.SetActive(true);
+
+            if (gravityPromptUI_Enter != null)
+                gravityPromptUI_Enter.SetActive(true);
+
+            if (gravityPromptUI_Exit != null)
+                gravityPromptUI_Exit.SetActive(true);
         }
     }
 
@@ -80,6 +80,12 @@ public class SwitchGravity : MonoBehaviour
 
             if (wallToActivate != null)
                 wallToActivate.SetActive(false);
+
+            if (gravityPromptUI_Enter != null)
+                gravityPromptUI_Enter.SetActive(false);
+
+            if (gravityPromptUI_Exit != null)
+                gravityPromptUI_Exit.SetActive(false);
         }
     }
 }
