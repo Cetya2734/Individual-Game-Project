@@ -17,6 +17,11 @@ public class PlayerStats : MonoBehaviour
 
     public static PlayerStats Instance { get; private set; }
 
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private float deathSoundVolume = 1.0f;
+
+    private AudioSource audioSource;
+
     private void Awake()
     {
         Instance = this; // Always update instance for the current player
@@ -27,6 +32,8 @@ public class PlayerStats : MonoBehaviour
         currentHealth = maxHealth;
         OnHealthChanged?.Invoke(currentHealth); // Ensure UI updates at start
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     public float GetMaxHealth() => maxHealth;
@@ -51,8 +58,18 @@ public class PlayerStats : MonoBehaviour
 
         Instantiate(deathChunkParticle, transform.position, deathChunkParticle.transform.rotation);
         Instantiate(deathBloodParticle, transform.position, deathBloodParticle.transform.rotation);
+
+        if (deathSound)
+        {
+            GameObject soundObject = new GameObject("DeathSoundPlayer");
+            soundObject.transform.position = transform.position; // Play sound at player's death position
+
+            SoundPlayer soundPlayer = soundObject.AddComponent<SoundPlayer>();
+            soundPlayer.PlaySound(deathSound, deathSoundVolume);
+        }
+
         GM.Respawn();
-        Destroy(gameObject);
+        Destroy(gameObject); // No delay needed!
     }
 
     public int GetCoins() => coinCount;

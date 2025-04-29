@@ -71,6 +71,13 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    private AudioSource audioSource;
+
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip dashSound;
+    //public AudioClip moveSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,6 +85,8 @@ public class PlayerController : MonoBehaviour
         amountOfJumpsLeft = amountOfJumps;
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -279,6 +288,7 @@ public class PlayerController : MonoBehaviour
 
         // Set the animator parameter
         anim.SetBool("isDashing", true);
+        audioSource.PlayOneShot(dashSound, 0.5f);
     }
 
     private void EndDash()
@@ -337,6 +347,7 @@ public class PlayerController : MonoBehaviour
             jumpTimer = 0;
             isAttemptingToJump = false;
             checkJumpMultiplier = true;
+            audioSource.PlayOneShot(jumpSound, 2f);
         }
     }
 
@@ -359,6 +370,7 @@ public class PlayerController : MonoBehaviour
             hasWallJumped = true;
             wallJumpTimer = wallJumpTimerSet;
             lastWallJumpDirection = -facingDirection;
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 
