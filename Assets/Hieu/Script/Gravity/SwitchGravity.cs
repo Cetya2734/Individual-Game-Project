@@ -15,11 +15,10 @@ public class SwitchGravity : MonoBehaviour
 
     [Header("Gravity Switch Control")]
     [SerializeField] private bool canSwitchGravity = false;
-    [SerializeField] private GameObject wallToActivate;
 
-    [Header("UI Prompts")]
-    [SerializeField] private GameObject gravityPromptUI_Enter;
-    [SerializeField] private GameObject gravityPromptUI_Exit;
+    //[Header("UI Prompts")]
+    //[SerializeField] private GameObject gravityPromptUI_Enter;
+    //[SerializeField] private GameObject gravityPromptUI_Exit;
 
     void Start()
     {
@@ -27,8 +26,8 @@ public class SwitchGravity : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         // Ensure prompts start off
-        if (gravityPromptUI_Enter) gravityPromptUI_Enter.SetActive(false);
-        if (gravityPromptUI_Exit) gravityPromptUI_Exit.SetActive(false);
+        //if (gravityPromptUI_Enter) gravityPromptUI_Enter.SetActive(false);
+        //if (gravityPromptUI_Exit) gravityPromptUI_Exit.SetActive(false);
     }
 
     private void Update()
@@ -61,14 +60,11 @@ public class SwitchGravity : MonoBehaviour
         {
             canSwitchGravity = true;
 
-            if (wallToActivate != null)
-                wallToActivate.SetActive(true);
+            //if (gravityPromptUI_Enter != null)
+            //    gravityPromptUI_Enter.SetActive(true);
 
-            if (gravityPromptUI_Enter != null)
-                gravityPromptUI_Enter.SetActive(true);
-
-            if (gravityPromptUI_Exit != null)
-                gravityPromptUI_Exit.SetActive(true);
+            //if (gravityPromptUI_Exit != null)
+            //    gravityPromptUI_Exit.SetActive(true);
         }
     }
 
@@ -78,14 +74,16 @@ public class SwitchGravity : MonoBehaviour
         {
             canSwitchGravity = false;
 
-            if (wallToActivate != null)
-                wallToActivate.SetActive(false);
+            //if (gravityPromptUI_Enter != null)
+            //    gravityPromptUI_Enter.SetActive(false);
 
-            if (gravityPromptUI_Enter != null)
-                gravityPromptUI_Enter.SetActive(false);
-
-            if (gravityPromptUI_Exit != null)
-                gravityPromptUI_Exit.SetActive(false);
+            //if (gravityPromptUI_Exit != null)
+            //    gravityPromptUI_Exit.SetActive(false);
         }
+    }
+
+    public void SetCanSwitchGravity(bool value)
+    {
+        canSwitchGravity = value;
     }
 }

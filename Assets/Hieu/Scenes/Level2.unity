@@ -202,11 +202,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 963532335927453089, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 312.6
+      value: 313.1
       objectReference: {fileID: 0}
     - target: {fileID: 963532335927453089, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.81
+      value: -11.2300005
       objectReference: {fileID: 0}
     - target: {fileID: 1666420601977397330, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_RootOrder
@@ -254,11 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1920080422465600587, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 312.6
+      value: 313.1
       objectReference: {fileID: 0}
     - target: {fileID: 1920080422465600587, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.81
+      value: -11.2300005
       objectReference: {fileID: 0}
     - target: {fileID: 3177394652113849996, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: orthographic size
@@ -5186,11 +5186,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 333.2
+      value: 333.7
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.3
+      value: -8.72
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -70706,6 +70706,10 @@ PrefabInstance:
     - target: {fileID: 4903776110497448568, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342546605334748029, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -807309321
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

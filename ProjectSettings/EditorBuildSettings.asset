@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hieu/Scenes/Level2.unity
     guid: 05b01b1353a2d80489e4ca904f2b1062
+  - enabled: 1
+    path: Assets/Hieu/Scenes/Level3.unity
+    guid: f1111034f98175b429f8e11efcfc7905
   m_configObjects: {}
