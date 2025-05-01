@@ -26,6 +26,13 @@ public class PlayerCombatController : MonoBehaviour
     private PlayerController PC;
     private PlayerStats PS;
 
+    [SerializeField] private AudioClip attackSound;
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private float attackSoundVolume = 1f;
+    [SerializeField] private float hitSoundVolume = 1f;
+
+    private AudioSource audioSource;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -38,6 +45,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         CheckCombatInput();
         CheckAttacks();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void CheckCombatInput()
@@ -66,6 +74,9 @@ public class PlayerCombatController : MonoBehaviour
                 anim.SetBool("attack1", true);
                 anim.SetBool("firstAttack", isFirstAttack);
                 anim.SetBool("isAttacking", isAttacking);
+
+                if (attackSound && audioSource)
+                    audioSource.PlayOneShot(attackSound, attackSoundVolume);
             }
         }
 
@@ -87,6 +98,8 @@ public class PlayerCombatController : MonoBehaviour
         foreach(Collider2D collider in detectedObjects)
         {
             collider.transform.parent.SendMessage("Damage", attackDetails);
+            if (hitSound && audioSource)
+                audioSource.PlayOneShot(hitSound, hitSoundVolume);
         }
     }
 

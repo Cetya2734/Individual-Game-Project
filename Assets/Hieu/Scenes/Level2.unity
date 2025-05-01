@@ -202,11 +202,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 963532335927453089, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 313.1
+      value: 313.65
       objectReference: {fileID: 0}
     - target: {fileID: 963532335927453089, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.2300005
+      value: -10.11
       objectReference: {fileID: 0}
     - target: {fileID: 1666420601977397330, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_RootOrder
@@ -254,11 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1920080422465600587, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 313.1
+      value: 313.65
       objectReference: {fileID: 0}
     - target: {fileID: 1920080422465600587, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.2300005
+      value: -10.11
       objectReference: {fileID: 0}
     - target: {fileID: 3177394652113849996, guid: e302facd4ce6e5949aba49b4546eb8b0, type: 3}
       propertyPath: orthographic size
@@ -395,6 +395,25 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f14c8f60830251419ef6ef55274fe2e, type: 3}
+--- !u!1 &31733618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1220066232582264363, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}
+  m_PrefabInstance: {fileID: 7815717820699313507}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &31733622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31733618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f863c0e3e4a504eb8636433e2295fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityPromptUI_Enter: {fileID: 1021337346}
+  gravityPromptUI_Exit: {fileID: 682138811}
 --- !u!1 &42513547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3987456488955787636, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}
@@ -5186,11 +5205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 333.7
+      value: 334.25
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.72
+      value: -7.6
       objectReference: {fileID: 0}
     - target: {fileID: 5532413602691976255, guid: 6d7a7870af54ba94db539a29dba6c37f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7808,8 +7827,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703938818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 513.9158, y: -0.5106, z: 0}
-  m_LocalScale: {x: 381.00775, y: 28.97862, z: 1}
+  m_LocalPosition: {x: 517.3923, y: 4.5014, z: 0}
+  m_LocalScale: {x: 449.69577, y: 110.215454, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -70714,5 +70733,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1220066232582264363, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 31733622}
   m_SourcePrefab: {fileID: 100100000, guid: 246605f19c9fb284f9fc2864fff80f74, type: 3}

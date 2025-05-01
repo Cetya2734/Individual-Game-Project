@@ -20,6 +20,9 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private float deathSoundVolume = 1.0f;
 
+    [SerializeField] private AudioClip damageSound;
+    [SerializeField] private float damageSoundVolume = 0.5f;
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -44,6 +47,11 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= amount;
         currentHealth = Mathf.Max(currentHealth, 0f);
         OnHealthChanged?.Invoke(currentHealth);
+
+        if (currentHealth > 0f && damageSound && audioSource)
+        {
+            audioSource.PlayOneShot(damageSound, damageSoundVolume);
+        }
 
         if (currentHealth <= 0.0f)
         {
